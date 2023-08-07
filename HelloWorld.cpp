@@ -4,7 +4,12 @@
 #include <iostream>
 using namespace std;
 
+// No header, no hoisting. Functions/vars used in main() need to be declared 
+// above main in a single-file program.
+
+// declare a constant
 const int number = 3;
+
 
 //function with no return
 void whisperToProgrammer() {
@@ -25,9 +30,8 @@ void setMeTo5(int &numToChange) {
     numToChange = 5;
 }
 
-//Note: The function return type is NOT used to differentiate overloaded functions. 
-//C++ will not be able to tell two functions apart if the only difference 
-//is their return type
+//Note on function declarations: Return types not used to tell overloads apart.  
+
 
 //friendly neighborhood main function
 int main()
@@ -66,6 +70,7 @@ int main()
     //foreach
     //warning: range-based for loop is a C++11 extension
     //warning: 'auto' type specifier is a C++11 extension
+    //to compile: g++ HelloWorld.cpp -std=c++17 -o HelloWorld
     int pi_times_100k[6] = {3, 1, 4, 1, 5, 9};
     //for (int number : pi_times_100k) {
     for (auto number : pi_times_100k) {
@@ -73,9 +78,7 @@ int main()
     }
     cout << endl;
 
-    //Functions are not hoisted. These must be declared before main. 
     whisperToProgrammer();
-
     setMeTo5(changeable);
     //Should print out 5 LA's
     cout << shareTheMessageWithTheClass(alias) << endl;
