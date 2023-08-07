@@ -92,7 +92,9 @@ g++ HelloWorld.cpp -o HelloWorld
 ./HelloWorld
 ```
 
-### Set Up VSCode Compile Options
+### Set Up VSCode
+
+#### Compile Options
 
 With a .cpp file open, hit the run button on the top right to [link clang up to VSCode](https://code.visualstudio.com/docs/cpp/config-clang-mac). A `tasks.json` file will be generated. The below is an example of tha file after choosing `clang++ build active file`, with some noted changes. 
 
@@ -148,6 +150,34 @@ g++ HelloWorld.cpp -std=c++17 -o HelloWorld
 ./HelloWorld
 ```
 
+#### Formatting Options
+
+VSCode's default style is to put the opening curly brace below the starting line, but this is [easily changed](https://stackoverflow.com/questions/46111834/format-curly-braces-on-same-line-in-c-vscode).
+
+Add the following line to settings.json 
+
+```
+"C_Cpp.clang_format_fallbackStyle": "LLVM"
+```
+
+To get fancier provide a .clang-format file
+- https://code.visualstudio.com/docs/cpp/cpp-ide#_code-formatting
+- https://clang.llvm.org/docs/ClangFormat.html
+- https://www.clangpowertools.com/blog/getting-started-with-clang-format-style-options.html
+
+```
+---
+Language:    	Cpp
+# BasedOnStyle:  LLVM
+AccessModifierOffset: -4
+IndentWidth: 4
+TabWidth: 4
+AlignAfterOpenBracket: Align
+AlignConsecutiveMacros: false
+AlignConsecutiveAssignments: false
+```
+
+An added benefit, a `.clang-format` file is more IDE agnostic. 
 
 ## C++ Review
 
