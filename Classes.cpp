@@ -44,6 +44,7 @@ public:
 
 class WrapAgain: public HasDefaults {
 public:
+    //Treats parent initializer as member initializer list. 
     WrapAgain(std::string real_message)
         :HasDefaults(real_message) {}
 
