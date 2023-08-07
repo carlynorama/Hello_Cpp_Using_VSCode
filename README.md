@@ -27,9 +27,17 @@ touch HelloWorld.cpp
 
 #### gitignore
 
-```git
+```bash
 .DS_Store
-HelloWorld
+
+HelloWorld # Leave out build of default script
+# Will eventually put all binaries in a bin folder
+bin/
+
+## Apple for iOS
+## can turn them off by not using -g 
+## or using -g0 compiler flag
+*.dSYM
 
 # Prerequisites
 *.d
@@ -84,9 +92,16 @@ g++ HelloWorld.cpp -o HelloWorld
 ./HelloWorld
 ```
 
-### Set Up VSCode
+### Set Up VSCode Compile Options
 
-Hit the run button to [link clang up to VSCode](https://code.visualstudio.com/docs/cpp/config-clang-mac). A `tasks.json` file will be generated.  Go ahead and add a more recent version of the standard library. 
+With a .cpp file open, hit the run button on the top right to [link clang up to VSCode](https://code.visualstudio.com/docs/cpp/config-clang-mac). A `tasks.json` file will be generated. The below is an example of tha file after choosing `clang++ build active file`, with some noted changes. 
+
+For more on available arguments: 
+ - https://clang.llvm.org/docs/ClangCommandLineReference.html
+ - https://clang.llvm.org/get_started.html
+ - https://gcc.gnu.org/onlinedocs/gcc/
+ - C++ status: https://clang.llvm.org/cxx_status.html
+ - on dSYM files: https://developer.apple.com/videos/play/wwdc2021/10211/
 
 ### tasks.json
 
@@ -100,12 +115,14 @@ Hit the run button to [link clang up to VSCode](https://code.visualstudio.com/do
             "args": [
                 "-fcolor-diagnostics",
                 "-fansi-escape-codes",
-                //ADDED! Use a more recent version of the std.
-                "-std=c++17",  
-                "-g",
+                //ADDED!
+                "-std=c++17",
+                //-g is default, -g0 turns off the creation of .dSYM files
+                "-g0",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                //default: ${fileDirname}/${fileBasenameNoExtension}
+                "${workspaceFolder}/bin/${fileBasenameNoExtension}"
             ],
             "options": {
                 "cwd": "${fileDirname}"

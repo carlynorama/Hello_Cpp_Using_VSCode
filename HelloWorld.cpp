@@ -25,13 +25,13 @@ string shareTheMessageWithTheClass(int count = 10) {
     return message;
 }
 
-//pass in reference
+//pass in a reference
 void setMeTo5(int &numToChange) {
     numToChange = 5;
 }
 
-//Note on function declarations: Return types not used to tell overloads apart.  
-
+//Note on function declarations: 
+//Return types not used to tell overloads apart.  
 
 //friendly neighborhood main function
 int main()

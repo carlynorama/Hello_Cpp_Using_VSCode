@@ -1,7 +1,12 @@
 .DS_Store
-HelloWorld
-Classes
-Containers
+
+# If update task.json to be ${workspaceFolder}/bin/${fileBasenameNoExtension}
+bin/
+
+## Apple for iOS
+## can turn them off by not using -g 
+## or using -g0 compiler flag
+*.dSYM
 
 # Prerequisites
 *.d

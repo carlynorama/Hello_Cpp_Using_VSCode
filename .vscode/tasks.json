@@ -9,10 +9,12 @@
                 "-fansi-escape-codes",
                 //ADDED!
                 "-std=c++17",
-                "-g",
+                //-g is default, -g0 turns off the creation of .dSYM files
+                "-g0",
                 "${file}",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                //default: ${fileDirname}/${fileBasenameNoExtension}
+                "${workspaceFolder}/bin/${fileBasenameNoExtension}"
             ],
             "options": {
                 "cwd": "${fileDirname}"
