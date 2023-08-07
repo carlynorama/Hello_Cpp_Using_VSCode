@@ -61,3 +61,5 @@ g++ HelloWorld.cpp -std=c++17 -o HelloWorld
 - Standard Library headers: https://en.cppreference.com/w/cpp/header
 - keywords: https://en.cppreference.com/w/cpp/keyword
 - Precedence rules: https://en.cppreference.com/w/cpp/language/operator_precedence
+- https://cplusplus.com/reference/ 
+- https://www.codecademy.com/courses/c-plus-plus-for-programmers/
