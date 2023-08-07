@@ -2,11 +2,9 @@
 
 Getting Reacquainted with C++ on MacOS
 
-## C++ Project Start Up
-
 ### Check the Environment
 
-C++ needs a compiler. Confirm what tools are available. Sample result on checking:
+C++ needs a compiler. Confirm what tools are available. My result on checking:
 
 ```zsh
 clang --version     # Apple clang version 14.0.3 (clang-1403.0.22.14.1)
@@ -21,11 +19,14 @@ make --version      # GNU Make 3.81
 ```zsh
 mkdir $PROJECT_NAME
 cd $PROJECT_NAME
+git init
 touch .gitignore
 touch HelloWorld.cpp
 ```
 
 #### gitignore
+
+GitHub [provides more](https://github.com/github/gitignore/blob/main/C%2B%2B.gitignore), but bare minium:
 
 ```bash
 .DS_Store
@@ -33,46 +34,14 @@ touch HelloWorld.cpp
 HelloWorld # Leave out build of default script
 # Will eventually put all binaries in a bin folder
 bin/
+*.out #in case forget to add a -o flag to compiler call
 
 ## Apple for iOS
-## can turn them off by not using -g 
+## can turn them off by not using -g in compiler call
 ## or using -g0 compiler flag
 *.dSYM
 
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
 ```
-
 
 #### HelloWorld.cpp
 
@@ -143,7 +112,7 @@ For more on available arguments:
 }
 ```
 
-It's possible to use later library in the command line, too: 
+It's possible to use a later library via a command line compile, too: 
 
 ```zsh
 g++ HelloWorld.cpp -std=c++17 -o HelloWorld
@@ -152,20 +121,19 @@ g++ HelloWorld.cpp -std=c++17 -o HelloWorld
 
 #### Formatting Options
 
-VSCode's default style is to put the opening curly brace below the starting line, but this is [easily changed](https://stackoverflow.com/questions/46111834/format-curly-braces-on-same-line-in-c-vscode).
+VSCode's default style is to put the opening curly brace below the starting line, but this is [easily changed](https://stackoverflow.com/questions/46111834/format-curly-braces-on-same-line-in-c-vscode) by adding the following line to the workspace's `.vscode/settings.json` 
 
-Add the following line to settings.json 
-
-```
-"C_Cpp.clang_format_fallbackStyle": "LLVM"
-```
-
-To get fancier provide a .clang-format file
-- https://code.visualstudio.com/docs/cpp/cpp-ide#_code-formatting
-- https://clang.llvm.org/docs/ClangFormat.html
-- https://www.clangpowertools.com/blog/getting-started-with-clang-format-style-options.html
+```json
+{ 
+    //other settings...,
+    "C_Cpp.clang_format_fallbackStyle": "LLVM"
+}
 
 ```
+
+To be fancier provide a `.clang-format` file in the project's root directory. An added benefit, a `.clang-format` file will be usable by others not using VSCode.  
+
+```yaml
 ---
 Language:    	Cpp
 # BasedOnStyle:  LLVM
@@ -177,7 +145,10 @@ AlignConsecutiveMacros: false
 AlignConsecutiveAssignments: false
 ```
 
-An added benefit, a `.clang-format` file is more IDE agnostic. 
+- https://code.visualstudio.com/docs/cpp/cpp-ide#_code-formatting
+- https://clang.llvm.org/docs/ClangFormat.html
+- https://www.clangpowertools.com/blog/getting-started-with-clang-format-style-options.html
+
 
 ## C++ Review
 
@@ -187,7 +158,9 @@ An added benefit, a `.clang-format` file is more IDE agnostic.
 - keywords: https://en.cppreference.com/w/cpp/keyword
 - Precedence rules: https://en.cppreference.com/w/cpp/language/operator_precedence
 - https://cplusplus.com/reference/ 
-- https://www.codecademy.com/courses/c-plus-plus-for-programmers/
+- Easy clear course to blow through, down side, requires (free) account: https://www.codecademy.com/courses/c-plus-plus-for-programmers/
+
+Also when back and looked at a [2021 project](https://github.com/SketchingInHardware/skommunity) to remind myself about Templates. Originally cribbed from [FastLED](https://github.com/FastLED/FastLED) a really well written hardware library. 
 
 ### Included Files
 
