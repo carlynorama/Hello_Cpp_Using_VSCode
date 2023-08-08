@@ -8,7 +8,6 @@ project(Primes
 
 #Name the library and the files it uses         
 add_library(PrimeNumberStore PrimeLib.cpp PrimeLib.hpp)
-taraget_include_directories(PrimeNumberStore PRIVATE )
 
 # Name the Executable Target and say which files it uses
 add_executable(PrimeEmitter Prime.cpp)
