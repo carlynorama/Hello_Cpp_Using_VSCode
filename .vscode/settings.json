@@ -68,7 +68,9 @@
         "queue": "cpp",
         "set": "cpp",
         "unordered_set": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "fstream": "cpp",
+        "iomanip": "cpp"
     },
     "C_Cpp.clang_format_fallbackStyle":"LLVM"
 }
