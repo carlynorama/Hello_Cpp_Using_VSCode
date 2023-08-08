@@ -169,3 +169,17 @@ Each file can be compiled and run independently.
 - **HelloWorld.cpp**: miscellaneous things to remember about C++
 - **Classes.cpp**: How Classes and inheritance work
 - **Containers.cpp**: Various data types like, arrays, vectors, stacks, queues, sets and maps. 
+
+
+
+#### Multi-file CMake Example
+
+Not currently set up to build with VSCode run button, but with CMake directly.
+
+```bash
+cd MultiFileExample/source
+cmake -S . -B ../build
+cmake --build ../build 
+../build/PrimeEmitter # gives random prime
+../build/PrimeEmitter 3 998 9999 # gives 3rd, 998th and 9999th prime
+```
