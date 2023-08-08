@@ -2,6 +2,7 @@
 
 # If update task.json to be ${workspaceFolder}/bin/${fileBasenameNoExtension}
 bin/
+*/build/
 
 ## Apple for iOS
 ## can turn them off by not using -g 
